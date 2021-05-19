@@ -1,0 +1,19 @@
+
+<h4 style="text-align:center"> Bar chart For Movies
+    
+    </h4><br/> 
+  <div class="col-md-5 pt-8">
+    <div style="display: block">
+      <canvas baseChart
+              [datasets]="barChartData"
+              [labels]="mbarChartLabels"
+              [options]="barChartOptions"
+              [colors]="barChartColors"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  
+  
+  </div>

@@ -1,0 +1,116 @@
+  <div class="container">
+      
+        <div class="card-group">
+            <!--bootstrap card with  horizontal images-->
+            <div class="row pt-4">
+                <div class="card col-md-6">
+                   <img class="card-img-top imgCls" [src] ="ImageRoohiPath" >
+                   
+                   <div class="col-md-12 pt-2 pb-2">
+                    <button class="btn btn-success col-md-1" (click)="increment('Roohi')"><i class="fa fa-plus"></i></button>
+    
+                    <input type="text" class="col-md-2" [(ngModel)]="inputRoohiVal">
+                
+                    <button class="btn btn-danger col-md-1" [disabled]="disableRoohiBtn" (click)="decrement('Roohi')"><i class="fa fa-minus"></i></button>
+                     
+                     <button type="button" (click)="addCart('Roohi')" style="margin-left: 75px;"  class="btn btn-sm btn-primary col-md-2">Cart</button>
+                 
+                  
+                     <button (click)="openModal('Roohi')" style="margin-left: 8px;" type="button" class="btn btn-sm btn-primary col-md-4">Movie Details</button>
+                   
+                 </div>
+                </div>
+           
+                <div class="card col-md-6">
+                   
+                    <img class="card-img-top imgCls" [src] ="ImageSagaPath">
+                    <div class="col-md-12 pt-2 pb-2">
+                        <button class="btn btn-success col-md-1" (click)="increment('Saga')"><i class="fa fa-plus"></i></button>
+        
+                        <input type="text" class="col-md-2" [(ngModel)]="inputSagaVal">
+                    
+                        <button class="btn btn-danger col-md-1" [disabled]="disableSagaBtn" (click)="decrement('Saga')"><i class="fa fa-minus"></i></button>
+                         
+                         <button type="button" (click)="addCart('Mumbai Saga')" style="margin-left: 75px;"  class="btn btn-sm btn-primary col-md-2">Cart</button>
+                     
+                      
+                        <button (click)="openModal('Mumbai Saga')" style="margin-left: 8px;"  type="button"  class="btn btn-sm btn-primary col-md-4">Movie Details</button>
+                     </div>
+                    
+                </div>
+            </div>
+            <div class="alert alert-success alert-dismissable" [style.display]="showInfoModal ? 'block' : 'none'">
+              <button type="button" class="close" (click)="hideAlert()" data-dismiss="alert" aria-hidden="true">&times;</button>
+                      You have successfully added the movie in cart.
+            </div>
+            <div class="row pt-4">
+                <div class="card col-md-6">
+                    <img class="card-img-top imgCls" [src] ="ImageUppenaPath">
+                    <div class="col-md-12 pt-2 pb-2">
+                      <button class="btn btn-success col-md-1" (click)="increment('Uppena')"><i class="fa fa-plus"></i></button>
+      
+                      <input type="text" class="col-md-2" [(ngModel)]="inputUppenaVal">
+                  
+                      <button class="btn btn-danger col-md-1" [disabled]="disableUppenaBtn" (click)="decrement('Uppena')"><i class="fa fa-minus"></i></button>
+                       
+                       <button type="button" (click)="addCart('Uppena')" style="margin-left: 75px;"  class="btn btn-sm btn-primary col-md-2">Cart</button>
+                   
+                    
+                       <button (click)="openModal('Uppena')" style="margin-left: 8px;" type="button" class="btn btn-sm btn-primary col-md-4">Movie Details</button>
+                   
+                   </div>
+                   
+                </div>
+                <div class="card col-md-6">
+                    
+                    <img class="card-img-top imgCls" [src] ="ImageKrackPath">
+                    <div class="col-md-12 pt-2 pb-2">
+                      <button class="btn btn-success col-md-1" (click)="increment('Krack')"><i class="fa fa-plus"></i></button>
+      
+                      <input type="text" class="col-md-2" [(ngModel)]="inputKrackVal">
+                  
+                      <button class="btn btn-danger col-md-1" [disabled]="disableKrackBtn" (click)="decrement('Krack')"><i class="fa fa-minus"></i></button>
+                       
+                       <button type="button" (click)="addCart('Krack')" style="margin-left: 75px;"  class="btn btn-sm btn-primary col-md-2">Cart</button>
+                   
+                    
+                       <button (click)="openModal('Krack')" type="button" style="margin-left: 8px;" class="btn btn-sm btn-primary col-md-4">Movie Details</button>
+                  
+                   </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <div class="modal" id="myModal" [style.display]="showModal ? 'block' : 'none'">
+        <div class="modal-dialog">
+          <div class="modal-content">
+          
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">{{movieName}}</h4>
+              <button type="button" class="close" data-dismiss="modal" (click) = "hide()">&times;</button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body" *ngIf="showModal">
+             <p>Movie Name : {{detail[0].movieName}}</p>
+             <p>Production Name : {{ detail[0].productionName}}</p>
+             <p>Movie Type : {{detail[0].movieType}}</p>
+             <p>Director : {{detail[0].director}}</p>
+             <p>Cast 1 : {{detail[0].cast1}}</p>
+             <p>Cast 2 : {{detail[0].cast2}}</p>
+             <p>Language : {{detail[0].language}}</p>
+            Poster : <img class="card-img-top imgSmCls" src ={{detail[0].poster}} />
+            </div>
+            
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal" (click) = "hide()">Close</button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+<app-movie-cart [showData]="false"></app-movie-cart>
